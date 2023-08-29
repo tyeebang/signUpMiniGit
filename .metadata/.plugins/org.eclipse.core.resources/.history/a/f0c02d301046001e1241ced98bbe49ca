@@ -1,0 +1,9 @@
+create table member (userid varchar2(10), userpwd varchar2(10));
+
+insert into member values('candy', '1234');
+insert into member values('admin', '5678');
+
+select * from member;
+
+delete from member where userid is null;
+delete from member where userid = 'wnsdn1269';
