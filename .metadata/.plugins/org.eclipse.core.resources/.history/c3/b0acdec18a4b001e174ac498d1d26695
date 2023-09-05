@@ -1,0 +1,5 @@
+create table member(userid varchar2(10), uwerpwd varchar2(10))
+
+select * from member
+
+delete from member where userid = 'wnsdn1269'
