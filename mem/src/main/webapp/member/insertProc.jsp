@@ -10,16 +10,16 @@
 <body>
 	<%
 		String id, pwd;
-		int n = 0;
 		MemberDAO dao = new MemberDAO();
-
+		int n = 0;
+		
 		id = request.getParameter("id");
 		pwd = request.getParameter("pwd");
 		
-		n = dao.updateMember(id, pwd);
+		n = dao.insertMember(id, pwd);
 		
-		if (n > 0) {
-			response.sendRedirect("/20113/member/memberList.jsp");
+		if(n > 0) {
+			response.sendRedirect("./memberList.jsp");
 		} else {
 			out.print("<script> history.back() </script>");
 		}

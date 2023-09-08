@@ -11,7 +11,7 @@
 	
 	<% String id = request.getParameter("id"); %>
 	
-	<form action="/20113/member/updateProc.jsp" method="post">
+	<form action="./updateProc.jsp" method="post">
 		<p>사용자 ID : <input type="text" name="id" value="<%=id%>" readonly></p>
 		<p>사용자 PWD : <input type="password" name="pwd"></p>
 		<input type="submit" value="수정">

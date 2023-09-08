@@ -9,19 +9,16 @@
 </head>
 <body>
 	<%
-		String id, pwd;
 		MemberDAO dao = new MemberDAO();
 		int n = 0;
+		String id = request.getParameter("id");
 		
-		id = request.getParameter("id");
-		pwd = request.getParameter("pwd");
+		n = dao.deleteMember(id);
 		
-		n = dao.insertMember(id, pwd);
-		
-		if(n > 0) {
-			response.sendRedirect("/20113/member/memberList.jsp");
+		if (n > 0) {
+			response.sendRedirect("./memberList.jsp");
 		} else {
-			out.print("<script> history.back() </script>");
+			out.print("<script> alert('회원정보 삭제를 실패하였습니다.); </script>");
 		}
 	%>
 </body>

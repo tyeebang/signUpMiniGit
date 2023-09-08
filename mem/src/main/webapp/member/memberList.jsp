@@ -21,8 +21,9 @@
 		<%
 			MemberDAO dao = new MemberDAO();
 			ArrayList<String> list = dao.getMemberList();
-			String updateLink = "/20113/member/memberUpdate.jsp?id=";
-			String deleteLink = "/20113/member/deleteProc.jsp?id=";
+			String updateLink = "./memberUpdate.jsp?id=";
+			String deleteLink = "/mem/delete?id=";
+			//String deleteLink = "./deleteProc.jsp?id=";
 			
 			if(list.isEmpty()) {
 				out.print("<tr><td>회원 정보가 없습니다.</td></tr>");
