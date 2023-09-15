@@ -113,4 +113,32 @@ public class MemberDAO {
 		return n;
 	}
 	
+	public boolean getMemberPwd(String id, String pwd) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select userpwd from member where userid=?";
+		boolean result = false;
+		
+		conn = JdbcUtil.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				if (pwd.equals(rs.getString("userpwd"))) {
+					result = true;
+				}
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(conn, pstmt, rs);
+		}
+		
+		return result;
+	}
+	
 }
